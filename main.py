@@ -5,14 +5,8 @@ from tensorflow import keras
 from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
 
-# Define dataset paths
-train_data_path = 'C:/Users/USER/PycharmProjects/MNST deepLearning/MNSTdataset/fashion-mnist_train'
-test_data_path = 'C:/Users/USER/PycharmProjects/MNST deepLearning/MNSTdataset/fashion-mnist_test'
-
 # Load Fashion MNIST dataset
-(train_images, train_labels), (test_images, test_labels) = keras.datasets.fashion_mnist.load_data(
-    train_data_path, test_data_path
-)
+(train_images, train_labels), (test_images, test_labels) = keras.datasets.fashion_mnist.load_data()
 
 # Define class names
 class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
@@ -43,7 +37,7 @@ print('Test accuracy:', test_acc)
 
 # Plot training history
 plt.plot(history.history['accuracy'], label='accuracy')
-plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
+plt.plot(history.history['val_accuracy'], label='val_accuracy')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.ylim([0, 1])
